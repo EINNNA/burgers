@@ -13,18 +13,9 @@ app.use(express.json());
 app.engine("handlebars", expresshands({ defaultLayout:"main"}));
 app.set("view engine", "handlebars");
 
-var connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "asdfgh",
-    database: "burgers"
-});
+var route = require("./controllers/burgers_controller");
+app.use(route);
 
-connection.connect(function(err) {
-    if (err) {
-        console.error("couldn't connect: " + err.stack);
-        return;
-    }
-    console.log("connected as " + connection.threadId);
+app.listen(PORT, function() {
+    console.log("listening at" + PORT);
 });
