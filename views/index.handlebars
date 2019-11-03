@@ -1,5 +1,27 @@
 <h1>Burger Bar</h1>
+<h3>Make your burger order here</h3>
+<form class="form">
+    <div class="form-group">
+        <input type="input" class="form-control" id="userInput" name="addInput" placeholder="Add your item here">
+    </div>
+    <button type="submit" class="btn">Add</button>
+</form>
+
+<h3>Ordered Burgers</h3>
 <ul>
-    {{each burger}}
-    
+    {{#each burgers}}
+    {{#unless devoured}}
+    <button type="submit" class="btn eaten">Eat</button>
+    {{/unless}}
+    {{/each}}
+</ul>
+
+<h3>Eaten Burgers</h3>
+
+<ul>
+    {{#each burgers}}
+    {{#if devoured}}
+
+    {{/if}}
+    {{/each}}
 </ul>

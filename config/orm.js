@@ -12,7 +12,7 @@ var orm = {
     },
 
     orderBurger: function(table, id) {
-        var query = "INSERT INTO ?? WHERE;
+        var query = "INSERT INTO ?? WHERE";
         connection.query(query, function(err,res) {
             if(err) {
                 throw err;
