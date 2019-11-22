@@ -2,26 +2,32 @@
 <h3>Make your burger order here</h3>
 <form class="form">
     <div class="form-group">
-        <input type="input" class="form-control" id="userInput" name="addInput" placeholder="Add your item here">
+        <input type="input" class="form-control name" id="userInput" name="addInput" placeholder="Add your item here">
     </div>
-    <button type="submit" class="btn">Add</button>
+    <button type="submit" class="btn submit">Add</button>
 </form>
 
 <h3>Ordered Burgers</h3>
 <ul>
     {{#each burgers}}
     {{#unless devoured}}
-    <button type="submit" class="btn eaten">Eat</button>
+        <li>
+            {{burger_name}}
+            <button type="submit" class="btn eaten">Eat</button>
+        </li>
     {{/unless}}
     {{/each}}
 </ul>
 
 <h3>Eaten Burgers</h3>
-
 <ul>
     {{#each burgers}}
     {{#if devoured}}
-
+        <li>
+            <strike>
+                {{burger_name}}
+            </strike>
+        </li>
     {{/if}}
     {{/each}}
 </ul>
