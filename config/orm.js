@@ -11,9 +11,10 @@ var orm = {
         });
     },
 
-    orderBurger: function (cols, vals, id, cb) {
-        var query = "INSERT INTO burgers SET (??) VALUES (?) WHERE (?)";
-        connection.query(query, [cols, vals, id], function (err, res) {
+    orderBurger: function (values, cb) {
+        var query = "INSERT INTO burgers SET ?";
+
+        connection.query(query, values, function (err, res) {
             if (err) {
                 throw err;
             }
@@ -23,14 +24,15 @@ var orm = {
         });
     },
 
-    eatBurger: function (cols, id, cb) {
-        var query = "UPDATE burgers SET(?) WHERE (?)";
-        connection.query(query, [cols, id], function (err, res) {
+    eatBurger: function (id, cb) {
+        var query = "UPDATE burgers SET devoured=1 WHERE id=?";
+
+        connection.query(query, id, function (err, res) {
             if (err) {
                 throw err;
             }
             else {
-            cb(res);
+                cb(res);
             }
         });
     }

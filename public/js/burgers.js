@@ -18,8 +18,8 @@ $(".submit").on("click", function(e){
 
 //eat burger
 $(".eaten").on("click", function (e) {
-  e.preventDefault();
   var id = $(this).data("id");
+  console.log(id);
   $.ajax("/api/burgers/" + id, {
     type: "PUT"
   }).then(function () {
